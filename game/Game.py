@@ -1,33 +1,23 @@
 import pygame
-from random import randint
-from config import screen_resolution
-import numpy as np
+import config
+import random
 
 
-class Pixel(pygame.sprite.Sprite):
-    def __init__(self, screen, color):
-        super().__init__()
-        self.screen = screen
+class Atom:
+    def __init__(self, color):
         self.color = color
-        self._x = self.random_position()
-        self._y = self.random_position()
-        self.mass = 1
-        self.velocity_x = 0
-        self.velocity_y = 0
-        self.image = pygame.Surface((5, 5))
-        self.image.fill(self.color)
-        self.rect = self.image.get_rect()
-        self.rect.x = self._x
-        self.rect.y = self._y
+        self.x = self.random_position()
+        self.y = self.random_position()
+        self.vx = 0
+        self.vy = 0
 
     @staticmethod
     def random_position():
-        return randint(0, screen_resolution[0])
+        return round(random.random() * config.screen_resolution[0] + 1)
 
-    def update(self):
-        self.rect.move_ip(self.velocity_x, self.velocity_y)
-        self._x = self.rect.x
-        self._y = self.rect.y
+    def move(self):
+        self.x += self.vx
+        self.y += self.vy
 
-    def draw_pixel(self):
-        self.screen.blit(self.image, self.rect.topleft)
+    def draw(self, screen, size):
+        pygame.draw.line(screen, self.color, (self.x, self.y - 1), (self.x, self.y + 2), abs(size))
