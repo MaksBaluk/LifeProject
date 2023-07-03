@@ -41,30 +41,34 @@ def rule(atoms1, atoms2, g):
             a.vy *= -1
 
 
-red = create_atoms(100, "red")
-green = create_atoms(100, "green")
-yellow = create_atoms(100, "yellow")
+red = create_atoms(250, "red")
+green = create_atoms(750, "green")
+
+
+# yellow = create_atoms(250, "yellow")
+# white = create_atoms(250, 'white')
 
 
 def main():
     run = True
     while run:
         screen.fill(pygame.Color('black'))
-        # rule(red, red, 0.1)
-        # rule(red, yellow, -0.15)
-        # rule(yellow, yellow, -0.1)
-        # rule(green,red,0.125)
-        # rule(green,yellow,0.125)
-        # rule(green,green,0.125)
-        rule(green, green, -0.32)
-        rule(green, red, -0.17)
-        rule(green, yellow, 0.34)
-        rule(red, red, -0.10)
-        rule(red, green, -0.34)
-        rule(yellow, yellow, 0.15)
-        rule(yellow, green, -0.20)
+        # rule(green, green, -0.32)
+        # rule(green, red, -0.17)
+        # rule(green, yellow, 0.34)
+        # rule(red, red, -0.10)
+        # rule(red, green, -0.34)
+        # rule(yellow, yellow, 0.15)
+        # rule(yellow, green, -0.20)
+        # rule(white, white, 0.1)
+        # rule(white, red, 0.34)
+        # rule(white, yellow, 0.34)
+        # rule(white, green, 0.34)
+        rule(red, red, -0.5)
+        rule(green, red, 0.5)
+        rule(red, green, -0.5)
         for a in atoms:
-            a.draw(screen, 7)
+            a.draw(screen, 1)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
