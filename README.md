@@ -1,1 +1,1 @@
-Life Project
+Brownian motion simulation in Python 
