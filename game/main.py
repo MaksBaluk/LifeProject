@@ -7,10 +7,10 @@ pygame.init()
 screen = pygame.display.set_mode(config.screen_resolution)
 clock = pygame.time.Clock()
 
-atoms = []
+atoms: list = []
 
 
-def create_atoms(number, color):
+def create_atoms(number: int, color: str):
     group = []
     for _ in range(number):
         group.append(Atom(color))
@@ -18,7 +18,7 @@ def create_atoms(number, color):
     return group
 
 
-def rule(atoms1, atoms2, g):
+def rule(atoms1: list, atoms2: list, g: int | float):
     for a in atoms1:
         fx = 0
         fy = 0
@@ -41,34 +41,19 @@ def rule(atoms1, atoms2, g):
             a.vy *= -1
 
 
-red = create_atoms(250, "red")
-green = create_atoms(750, "green")
-
-
-# yellow = create_atoms(250, "yellow")
-# white = create_atoms(250, 'white')
+red = create_atoms(100, "red")
+green = create_atoms(100, "green")
 
 
 def main():
     run = True
     while run:
         screen.fill(pygame.Color('black'))
-        # rule(green, green, -0.32)
-        # rule(green, red, -0.17)
-        # rule(green, yellow, 0.34)
-        # rule(red, red, -0.10)
-        # rule(red, green, -0.34)
-        # rule(yellow, yellow, 0.15)
-        # rule(yellow, green, -0.20)
-        # rule(white, white, 0.1)
-        # rule(white, red, 0.34)
-        # rule(white, yellow, 0.34)
-        # rule(white, green, 0.34)
         rule(red, red, -0.5)
         rule(green, red, 0.5)
         rule(red, green, -0.5)
         for a in atoms:
-            a.draw(screen, 1)
+            a.draw(screen, 5)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

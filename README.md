@@ -1,1 +1,2 @@
-# Brownian motion simulation in python
+## Brownian motion simulation in python
+

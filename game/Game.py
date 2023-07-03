@@ -6,7 +6,7 @@ import random
 class Atom:
     """class Atom create atom in simulation"""
 
-    def __init__(self, color):
+    def __init__(self, color: str):
         self.color = color
         self.x = self.random_position()
         self.y = self.random_position()
@@ -15,11 +15,11 @@ class Atom:
 
     @staticmethod
     def random_position():
-        return round(random.random() * config.screen_resolution[0] + 1)
+        return round(random.random() * config.Width + 1)
 
     def move(self):
         self.x += self.vx
         self.y += self.vy
 
-    def draw(self, screen, size):
+    def draw(self, screen: pygame.Surface, size: int | float):
         pygame.draw.line(screen, self.color, (self.x, self.y - 1), (self.x, self.y + 2), abs(size))
