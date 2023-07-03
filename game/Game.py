@@ -4,6 +4,8 @@ import random
 
 
 class Atom:
+    """class Atom create atom in simulation"""
+
     def __init__(self, color):
         self.color = color
         self.x = self.random_position()
