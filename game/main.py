@@ -41,20 +41,28 @@ def rule(atoms1, atoms2, g):
             a.vy *= -1
 
 
-red = create_atoms(200, "red")
-green = create_atoms(200, "green")
-yellow = create_atoms(200, "yellow")
+red = create_atoms(100, "red")
+green = create_atoms(100, "green")
+yellow = create_atoms(100, "yellow")
 
 
 def main():
     run = True
     while run:
         screen.fill(pygame.Color('black'))
-        rule(red, red, 0.1)
-        rule(yellow, red, 0.15)
-        rule(green, green, -0.7)
-        rule(green, red, -0.2)
-        rule(red, green, -0.1)
+        # rule(red, red, 0.1)
+        # rule(red, yellow, -0.15)
+        # rule(yellow, yellow, -0.1)
+        # rule(green,red,0.125)
+        # rule(green,yellow,0.125)
+        # rule(green,green,0.125)
+        rule(green, green, -0.32)
+        rule(green, red, -0.17)
+        rule(green, yellow, 0.34)
+        rule(red, red, -0.10)
+        rule(red, green, -0.34)
+        rule(yellow, yellow, 0.15)
+        rule(yellow, green, -0.20)
         for a in atoms:
             a.draw(screen, 7)
 
