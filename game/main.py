@@ -49,11 +49,16 @@ def main():
     run = True
     while run:
         screen.fill(pygame.Color('black'))
-        rule(red, red, -0.5)
+        # rule(red, red, -0.5)
+        # rule(green, red, 0.5)
+        # rule(red, green, -0.5)
+        rule(red, red, 0.5)
+        rule(green, green, -0.5)
         rule(green, red, 0.5)
         rule(red, green, -0.5)
+
         for a in atoms:
-            a.draw(screen, 5)
+            a.draw(screen, 10)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
