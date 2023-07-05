@@ -22,4 +22,4 @@ class Atom:
         self.y += self.vy
 
     def draw(self, screen: pygame.Surface, size: int | float):
-        pygame.draw.line(screen, self.color, (self.x, self.y - 1), (self.x, self.y + 2), abs(size))
+        pygame.draw.rect(screen, self.color, (self.x, self.y, size, size))
